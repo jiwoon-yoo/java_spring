@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Secure Home Page</title>
+</head>
+<body>
+
+	<h1>This is a secured page!</h1>
+	
+		<header th:insert="fragments/header.html :: header"></header>
+	<div th:replace="fragments/menu.html :: div.menu"></div>
+	<h1>This is a secured page!</h1>
+	
+	<p>Jiwoon Yoo / 991600397</p>
+
+	<p>PlugInEV</p>
+	<table>
+		<tr><th>vehiculemake</th><th>vehiculemodel</th><th>enginetype</th><th>purchaseDate</th><th>purchaseTime</th><th>Operation</th></tr>
+		<tr th:each = "i : ${allPlugInEV}">
+			<td th:text = "${i.vehiculemake}"></td>
+			<td th:text = "${i.vehiculemodel}"></td>
+			<td th:text = "${i.enginetype}"></td>
+			<td th:text = "${i.purchaseDate}"></td>
+			<td th:text = "${i.purchaseTime}"></td>
+			<td><a href = "#" th:href = "|@{/edit/}${i.id}|">EDIT</a><br><a href = "#" th:href = "|@{/delete/}${i.id}|">DELETE</a></td>
+		</tr>
+	
+	</table>
+	
+
+	<form method = "get" action = "/secure" th:object = ${pluginev}>
+		<input type = "hidden" name = "id" th:field = "*{id}">
+	
+		vehiculemake : <input type = "text" name = "vehiculemake" th:field = *{vehiculemake}> <br>
+		vehiculemodel : <input type = "text" name = "vehiculemodel" th:field = *{vehiculemodel}> <br>
+		enginetype : <input type = "text" name = "enginetype" th:field = *{enginetype}> <br>
+		purchaseDate : <input type = "date" name = "purchaseDate" th:field = *{purchaseDate}> <br>
+		purchaseTime : <input type = "time" name = "purchaseTime" th:field = *{purchaseTime}> <br>
+	
+		<input type = "submit" value = "go">
+	</form>
+	
+	
+	<p><a href="/" th:href="@{/}">Back to home page</a></p>
+	<p><a href="#" th:href="@{/logout}">Logout</a></p>
+
+	<footer th:replace="fragments/footer.html :: footer"></footer>
+	
+	
+</body>
+</html>

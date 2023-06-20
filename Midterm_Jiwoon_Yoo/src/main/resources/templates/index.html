@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<p>Manufacturer</p>
+	<table>
+		<tr><th>Manufacturer </th><th>Country</th><th>email</th><th>shippingDate</th><th>shippingTime</th><th>Operation</th></tr>
+		<tr th:each = "i : ${allManufacturer}">
+			<td th:text = "${i.manufacturer}"></td>
+			<td th:text = "${i.country}"></td>
+			<td th:text = "${i.email}"></td>
+			<td th:text = "${i.shippingDate}"></td>
+			<td th:text = "${i.shippingTime}"></td>
+			<td><a href = "#" th:href = "|@{/edit/}${i.id}|">EDIT</a><br><a href = "#" th:href = "|@{/delete/}${i.id}|">DELETE</a></td>
+		</tr>
+	
+	</table>
+	
+
+
+	<form method = "post" action = "/result" th:object = ${manufacturer}>
+		<input type = "hidden" name = "id" th:field = "*{id}">
+		
+		manufacturer  : <input type = "text" name = "manufacturer" th:field = *{manufacturer}> <br>
+		country : <input type = "text" name = "country" th:field = *{country}> <br>
+		email : <input type = "text" name = "email" th:field = *{email}> <br>
+		shippingDate : <input type = "date" name = "shippingDate" th:field = *{shippingDate}> <br>
+		shippingTime : <input type = "time" name = "shippingTime" th:field = *{shippingTime}> <br>
+		
+		<input type = "submit" value = "go">
+	</form>
+</body>
+</html>
