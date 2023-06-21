@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href = "@{/css/myaccount.css}"  >
+
+</head>
+<body>
+
+	<div th:replace = @{/header}></div>
+	
+	
+	<p class="purchase-heading">purchase history</p>
+	
+	<div class = "container"  th:each = "i : ${orders}">
+		<p th:text = "${i.orderDate}"></p>
+		<p th:text = "${i.totalAmount}"></p>
+		<p th:text = "${i.status}"></p>
+		<a th:href = "@{/purchase/{order_id}  (order_id = ${i.order_id})}">View Order Details</a>
+	</div>
+	
+	
+	<div th:replace = @{/footer}></div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href = "@{/css/adminStock.css}"  >
+</head>
+<body>
+	
+	<div class="header" th:replace="@{/header}"></div>	
+	
+	<form th:action="@{/searchByProductName}" method="post">
+	    <label>Search by Product Name:</label>
+	    <input type="text" name="productName">
+	    
+	    <input type="submit" value="Search">
+	</form>
+	
+	
+	<div class="container">
+
+		<table>
+			<tr>
+				<th>name</th>
+				<th>size</th>
+				<th>color</th>
+				<th>stock quantity</th>
+				<th>modify</th>
+			</tr>
+			<tr th:each = "i : ${stocks}">
+				<td th:text = "${i.product_name}"></td>
+				<td th:text = "${i.size_name}"></td>
+				<td th:text = "${i.color_name}"></td>
+				<td th:text = "${i.stock_quantity}"></td>
+				<td>
+					<form th:action="@{/addQty}" method = "post">
+						<input type = "hidden" name = "product_id" th:value = "${i.product_id}">
+						<input type = "hidden" name = "color_id" th:value = "${i.color_id}">
+						<input type = "hidden" name = "size_id" th:value = "${i.size_id}">
+						
+						<input type="number" min="0" step="1" name = "qty">
+						
+						<input type = "submit" value = "add quantity">
+					</form>  
+					
+				</td>
+			</tr>
+		
+		</table>
+	
+	
+	</div>
+
+	
+	
+	
+	
+	<div class="footer" th:replace="@{/footer}"></div>
+	
+</body>
+</html>

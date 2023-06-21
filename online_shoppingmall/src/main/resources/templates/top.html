@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/viewAll.css}">
+</head>
+<body>
+
+	<div class="header" th:replace="@{/header}"></div>	
+	
+	<div class="container">
+		<div class="product-container" th:each="i, stat : ${pcs}" th:if = "${i.category_name == 'top'}">
+			<a class="product-link" th:href="@{/product/{product_id}/{color_id}(product_id = ${i.product_id}, color_id = ${i.color_id})}">
+				<img class="product-image" alt="" th:src="@{${images[__${stat.index}__].image_url}}"/>
+				<p class="product-name" th:text="${i.product_name}"></p>
+				<p class="product-price" th:text="${i.product_price} + ' won'"></p>
+			</a>
+		</div>
+	</div>
+		 
+	<div class="footer" th:replace="@{/footer}"></div>
+
+</body>
+</html>
