@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	hello index page 
+	
+	<a th:href = "@{/login}">로그인 하기</a>  <br>
+	<a th:href = "@{/logout}" sec:authorize = "isAuthenticated()">로그아웃 하기</a>  <br>
+	<a th:href = "@{/secure/mypage}"> my page for login user  </a>  <br>
+
+
+	<a th:href = "@{/secure/admin/productManage}"> admin account page </a>  <br>
+	
+	<a th:href = "@{/register}">register</a>
+	
+</body>
+</html>
