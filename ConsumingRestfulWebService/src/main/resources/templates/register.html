@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	register page 
+	<form method="post" th:action="@{/register}">
+		<input type="text" name="username"> <br>
+		<input type="text" name = "password"> <br>
+		<select name = "roleId">
+			<option value = 1>user account</option>
+			<option value = 2>admin account  </option>
+		</select>
+		
+		<input type="submit" value="register">
+	</form>
+
+</body>
+</html>
