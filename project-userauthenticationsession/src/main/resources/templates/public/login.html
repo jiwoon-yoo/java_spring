@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	this is login page 
+	
+	<form method="post" th:action = "@{/public/login}">
+		username : <input type="text" name = "username"> <br>
+		password : <input type="password" name = "password"> <br>
+		
+		<input type="submit" value="login">
+	</form>
+
+</body>
+</html>

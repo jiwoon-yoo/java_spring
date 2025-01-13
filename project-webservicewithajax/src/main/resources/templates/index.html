@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script type="text/javascript" th:src = "@{/js/index.js}"  defer></script>
+
+</head>
+<body>
+
+	index page 
+	
+	
+	get users list (name, email )
+	<button id = "getButton">get user lists</button>
+	<div id = "getContent"></div>
+
+	<br>
+
+
+	get single user(name, email)
+	<button id = "one-user-btn">get single user</button>
+	<div id = "one-user-output"></div>
+	
+	<br>
+
+
+	get resources list(name, year)
+	<button id = "resources-btn">get resources list</button>
+	<div id = "resources-output"></div>
+
+	<br>
+
+
+	post create save one user  <br>
+	<input type="text" id = "name"> <br>
+	<input type="text" id = "job"> <br>
+	<button id = "create-btn">create button</button>	
+	<div id = "post-output"></div>
+	
+	
+	<br>
+	
+	
+	delete one user 
+	<input type="text" id = "delete-id"   placeholder="enter user id to delete"> <br>
+	<button id = "delete-button">delete button</button>
+	<div id = "delete-output"></div>
+
+
+</body>
+</html>
